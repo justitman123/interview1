@@ -1,6 +1,6 @@
-const units = require("./units.json");
+const defaultUnits = require("./units.json");
 
-function convertDistanceUnits(data) {
+function convertDistanceUnits(data, units = defaultUnits) {
   if (
     !data ||
     !data.distance ||

@@ -1,4 +1,5 @@
 import { convertDistanceUnits } from "./index";
+import units from "./units.json";
 
 const data = {
   distance: {
@@ -10,7 +11,7 @@ const data = {
 
 describe("Базові тести (TS)", () => {
   it("Вихідні дані відповідають умовам завдання і повертаються в правильному форматі", () => {
-    const result = convertDistanceUnits(data);
+    const result = convertDistanceUnits(data, units);
 
     expect(result).toHaveProperty("unit");
     expect(typeof result.unit).toBe("string");

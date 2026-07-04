@@ -1,5 +1,3 @@
-import unitsJson from "./units.json" with { type: "json" };
-
 interface Distance {
   unit: string;
   value: number;
@@ -15,11 +13,12 @@ interface Result {
   value: number;
 }
 
-// JSON выводит литеральные типы ({ m: 1, ... }) и не даёт индексировать
-// произвольной строкой — приводим один раз к словарю "единица -> метры".
-const units = unitsJson as Record<string, number>;
+type Units = Record<string, number>;
 
-export function convertDistanceUnits(data: ConvertData): Result {
+// Чистое ядро: единицы приходят параметром, файл не читается здесь.
+// Благодаря этому модуль грузится в любой среде (Node, любой браузер) —
+// без импорта JSON, который в браузере требует спец-атрибутов.
+export function convertDistanceUnits(data: ConvertData, units: Units): Result {
   if (
     !data ||
     !data.distance ||

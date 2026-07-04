@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SysGears — демо в браузері</title>
+    <link rel="icon" href="data:," />
+
     <style>
       body {
         font-family: system-ui, sans-serif;
@@ -65,16 +67,22 @@
       const run = async (id, path, call) => {
         try {
           const mod = await import(path);
-          show(id, call(mod));
+          show(id, await call(mod));
         } catch (e) {
           document.querySelector(`#${id} pre`).classList.add("err");
           show(id, "Не вдалося запустити: " + e.message);
         }
       };
 
-      run("task1", "./dist/task_1/index.js", (m) =>
-        m.convertDistanceUnits({ distance: { unit: "m", value: 0.5 }, convertTo: "ft" })
-      );
+      run("task1", "./dist/task_1/index.js", async (m) => {
+        // units.json грузим через fetch и передаём в функцию —
+        // работает в любом браузере, без импорта JSON-модуля.
+        const units = await fetch("./task_1/units.json").then((r) => r.json());
+        return m.convertDistanceUnits(
+          { distance: { unit: "m", value: 0.5 }, convertTo: "ft" },
+          units
+        );
+      });
       run("task2", "./dist/task_2/index.js", (m) =>
         m.filterData(
           [
