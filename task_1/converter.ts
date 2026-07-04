@@ -1,4 +1,4 @@
-import unitsJson from "./units.json";
+import unitsJson from "./units.json" with { type: "json" };
 
 interface Distance {
   unit: string;

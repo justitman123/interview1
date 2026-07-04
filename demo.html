@@ -73,7 +73,7 @@
       };
 
       run("task1", "./dist/task_1/index.js", (m) =>
-        m.convertDistanceUnits({ distance: { unit: "m", value: 0.5 }, convert_to: "ft" })
+        m.convertDistanceUnits({ distance: { unit: "m", value: 0.5 }, convertTo: "ft" })
       );
       run("task2", "./dist/task_2/index.js", (m) =>
         m.filterData(

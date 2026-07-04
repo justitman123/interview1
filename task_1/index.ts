@@ -1,1 +1,1 @@
-export { convertDistanceUnits } from "./converter";
+export { convertDistanceUnits } from "./converter.js";
