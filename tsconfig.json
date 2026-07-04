@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "allowJs": true,
-    "outDir": "dist"
+    "resolveJsonModule": true
   },
   "include": ["task_1", "task_2", "task_3", "task_4"],
-  "exclude": ["node_modules", "dist", "**/*.test.js"]
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.js"]
 }
