@@ -16,5 +16,8 @@
     "jest": "^29.7.0",
     "typescript": "^5.5.3"
   },
+  "jest": {
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  },
   "private": true
 }
