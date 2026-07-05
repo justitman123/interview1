@@ -1,7 +1,7 @@
 import type { Rule } from "./rule";
-import { includeRule } from "./rule.include.js";
-import { excludeRule } from "./rule.exclude.js";
-import { sortByRule } from "./rule.sortBy.js";
+import { includeRule } from "./rule.include";
+import { excludeRule } from "./rule.exclude";
+import { sortByRule } from "./rule.sortBy";
 
 // Реестр правил по их name. Добавить новое правило = добавить файл-модуль
 // и вписать его сюда — filterData менять не нужно (единый интерфейс apply).
