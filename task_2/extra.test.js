@@ -19,12 +19,12 @@ describe("task_2 — розширені кейси (JS)", () => {
     });
   });
 
-  it("порожній include → нічого не залишається (порожній whitelist)", () => {
+  it("порожній include -> нічого не залишається (порожній whitelist)", () => {
     const data = [{ a: 1 }, { a: 2 }];
     expect(filterData(data, { include: [] })).toStrictEqual({ result: [] });
   });
 
-  it("порожній exclude → залишається все (нічого не виключаємо)", () => {
+  it("порожній exclude -> залишається все (нічого не виключаємо)", () => {
     const data = [{ a: 1 }, { a: 2 }];
     expect(filterData(data, { exclude: [] })).toStrictEqual({
       result: [{ a: 1 }, { a: 2 }],

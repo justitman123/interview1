@@ -21,12 +21,12 @@ describe("task_2 — розширені кейси (TS)", () => {
     });
   });
 
-  it("порожній include → нічого не залишається", () => {
+  it("порожній include -> нічого не залишається", () => {
     const data: Row[] = [{ a: 1 }, { a: 2 }];
     expect(filterData(data, { include: [] })).toStrictEqual({ result: [] });
   });
 
-  it("порожній exclude → залишається все", () => {
+  it("порожній exclude -> залишається все", () => {
     const data: Row[] = [{ a: 1 }, { a: 2 }];
     expect(filterData(data, { exclude: [] })).toStrictEqual({
       result: [{ a: 1 }, { a: 2 }],
